@@ -21,6 +21,9 @@
       display: none; } }
 
 .sf-menu ul {
+  /*RHM EDIT*/
+  /*left:100%;*/
+  /*RHM EDIT END*/
   position: absolute;
   top: -999em;
   background: #fff; }
@@ -36,6 +39,9 @@
   /* fixes IE7 'sticky bug' */ }
 
 .sf-menu > li {
+  /*RHM EDIT*/
+  width:100%;
+  /*RHM END*/
   float: left;
   border-right: 1px solid #d6d4d4;
   margin-bottom: -3px; }
@@ -89,7 +95,8 @@
 .sf-menu li ul {
   display: none;
   left: 0;
-  top: 59px;
+  /*RHM EDIT top:59px*/
+  top: 0px;
   /* match top ul list item height */
   z-index: 99;
   padding: 12px 0px 18px 0px;
@@ -136,6 +143,9 @@ ul.sf-menu li li li.sfHover ul {
   top: 0; }
 
 .sf-menu > li > ul {
+  /*RHM EDIT*/
+  left:100%;
+  /*RHM EDIT END*/  
   padding: 26px 30px 31px;
   width: 100%; }
   .sf-menu > li > ul > li > a {
