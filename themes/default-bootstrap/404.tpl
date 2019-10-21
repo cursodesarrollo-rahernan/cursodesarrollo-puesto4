@@ -22,7 +22,15 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<div class="pagenotfound">
+<div class="pagenotfound pagenotfound_pagecontent">
+	<div class="container-fluid pagenotfound_msg">
+        <p id="pagenotfound_msg_big">{l s='404'}</p>
+        <p>{l s='Ufffff... página no encontrada!!!'}</p>
+        <p>{l s='...pero ya que has venido, quédate!!!'}</p>
+        <a href="http://cursodesarrollo-puesto4.t1.webimpacto.net"><img src="{$img_dir}logofranja.png"></a>
+    </div>
+
+<!--
 	<h1>{l s='This page is not available'}</h1>
 
 	<p>
@@ -41,4 +49,5 @@
 	</form>
 
 	<div class="buttons"><a class="btn btn-default button button-medium" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left left"></i>{l s='Home page'}</span></a></div>
+-->
 </div>

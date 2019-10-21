@@ -5720,7 +5720,11 @@ textarea {
   z-index: 5003; }
 
 .columns-container {
-  background: #fff; }
+  background: #fff;
+  /*RHM EDITADO*/
+  background-color:#E6E6E6;
+  /*END RHM EDITADO*/
+}
 
 #columns {
   position: relative;
@@ -5742,7 +5746,7 @@ header {
     header .banner .row {
       margin: 0px; }
   header .nav {
-    background: #07a8a2; }
+    background: #333; }
     header .nav .row {
       margin: 0px; }
     header .nav nav {
@@ -8187,7 +8191,7 @@ table.discount i {
   #pagenotfound .pagenotfound p {
     font: 600 16px/20px "Open Sans", sans-serif;
     color: #555454;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     border-bottom: 1px solid #d6d4d4;
     padding-bottom: 19px;
     margin-bottom: 20px; }
@@ -8214,6 +8218,32 @@ table.discount i {
     padding: 48px 0 20px 0; }
     #pagenotfound .pagenotfound .buttons .button-medium i.left {
       font-size: 17px; }
+  /*RHM EDITADO*/
+  #pagenotfound .pagenotfound .pagenotfound_pagecontent {
+    background-color:lightgray;
+    padding:10px;
+    padding-top:20px;
+    padding-bottom:50px;
+  }    
+  #pagenotfound .pagenotfound .pagenotfound_msg {
+    background-color: white;
+    padding-top:20px;
+    padding-bottom:50px;
+    box-shadow: 0px 0px 5px 1px #A6A6A6;
+  }
+  #pagenotfound .pagenotfound .pagenotfound_msg p {
+    font: 505 16px/20px "Open Sans", sans-serif;
+    font-size:50px;
+    color: darkgray;
+    text-align:center;
+    border:0px;
+    line-height:1.5;
+  }
+  #pagenotfound_msg_big {
+    font-size:80px !important;
+  }
+  /*RHM END EDITADO*/
+    
 
 #account-creation_form fieldset.reversoform {
   padding: 10px !important; }
