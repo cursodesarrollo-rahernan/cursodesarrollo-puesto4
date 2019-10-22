@@ -8569,15 +8569,24 @@ div.star.star_hover:after {
   cursor: pointer; }
 
 /*RHM EDIT*/
-@media only screen and (max-width: 780px){
+@media only screen and (max-width: 770px){
   #left_column {
     padding:0;
     position:fixed;
     z-index:99;
     bottom:0%;
     left:0;
+    width:50%;
+  }
+
+  #right_column {
+    padding:0;
+    position:fixed;
+    z-index:99;
+    bottom:0%;
+    right:0;
+    width:50%;
   }
 }
-
 
 /*# sourceMappingURL=global.css.map */
