@@ -30,8 +30,12 @@
 				<li class="htmlcontent-item-{$smarty.foreach.items.iteration|escape:'htmlall':'UTF-8'} col-xs-12">
 			{else}
 				{*RHM EDIT *}
-				{if $hook == 'displayHome'}
-					<li class="htmlcontent-item-{$smarty.foreach.items.iteration|escape:'htmlall':'UTF-8'} col-xs-6">
+				{if $hook == 'home'}
+					{if $smarty.foreach.items.iteration > 1}
+						<li class="htmlcontent-item-{$smarty.foreach.items.iteration|escape:'htmlall':'UTF-8'} col-xs-6 htmlcontent-item-hide-in-media">
+					{else}
+						<li class="htmlcontent-item-{$smarty.foreach.items.iteration|escape:'htmlall':'UTF-8'} col-xs-6">
+					{/if}
 				{else}
 					<li class="htmlcontent-item-{$smarty.foreach.items.iteration|escape:'htmlall':'UTF-8'} col-xs-4">
 				{/if}
