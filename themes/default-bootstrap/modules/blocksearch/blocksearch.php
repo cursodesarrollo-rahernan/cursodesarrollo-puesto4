@@ -46,7 +46,12 @@ class BlockSearch extends Module
 
 	public function install()
 	{
-		if (!parent::install() || !$this->registerHook('top') || !$this->registerHook('header') || !$this->registerHook('displayMobileTopSiteMap') || !$this->registerHook('displaySearch'))
+		if (!parent::install()
+		 || !$this->registerHook('top')
+		 || !$this->registerHook('header')
+		 || !$this->registerHook('displayMobileTopSiteMap')
+		 || !$this->registerHook('displaySearch')
+		 /*|| !$this->registerHook('displayHome')*/) /**/
 			return false;
 		return true;
 	}
@@ -128,28 +133,12 @@ public function hookDisplayMobileHeader($params)
 	public function hookDisplaySearch($params)
     {
         return $this->hookRightColumn($params);
-    }
+	}
 
-	/*public function hookDisplayHome($params)
+	public function hookDisplayHome($params)
     {
         return $this->hookTop($params);
-	}*/
-	
-	public function hookDisplayHome($params)
-	{
-		$key = $this->getCacheId('blocksearch-home'.((!isset($params['hook_mobile']) || !$params['hook_mobile']) ? '' : '-hook_mobile'));
-		if (Tools::getValue('search_query') || !$this->isCached('blocksearch-home.tpl', $key))
-		{
-			$this->calculHookCommon($params);
-			$this->smarty->assign(array(
-				'blocksearch_type' => 'top',
-				'search_query' => (string)Tools::getValue('search_query')
-				)
-			);
-		}
-		Media::addJsDef(array('blocksearch_type' => 'top'));
-		return $this->display(__FILE__, 'blocksearch-home.tpl', Tools::getValue('search_query') ? null : $key);
-	}
+    }
 
 	private function calculHookCommon($params)
 	{

@@ -747,6 +747,11 @@ class Blocktopmenu extends Module
         return $this->hookDisplayTop($params);
     }
 
+    public function hookDisplayLeftColumn($params)
+    {
+        return $this->hookDisplayTop($params);
+    }
+
     protected function getCMSCategories($recursive = false, $parent = 1, $id_lang = false, $id_shop = false)
     {
         $id_lang = $id_lang ? (int)$id_lang : (int)Context::getContext()->language->id;
