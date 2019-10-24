@@ -24,20 +24,29 @@
 *  Modified by RHM.
 *}
 <!-- Block search module HOME -->
-<div id="search_block_top" class="col-xs-8 col-xs clearfix"> {*Cambiar esto para tener su propio CSS*}
+{*<div id="search_block_top" class="col-xs-8 col-xs clearfix"> {*Cambiar esto para tener su propio CSS*}
+<div id="search_block_home" class="container-fluid clearfix">
 	<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
-		<input type="hidden" name="controller" value="search" />
-		<input type="hidden" name="orderby" value="position" />
-		<input type="hidden" name="orderway" value="desc" />
-		{*<input type="inputlist" name="family" list="sources"/>*}
-		<select id="sources">
-			<option value="family">{l s='Search in Family'}</option>
-			<option value="shop" selected>{l s='Search in APP'}</option>
-		</select>
-		<input class="search_query form-control" type="text" id="search_query_top" name="search_query" placeholder="{l s='Search' mod='blocksearch'}" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
-		<button type="submit" name="submit_search" class="btn btn-default button-search">
-			<span>{l s='Search' mod='blocksearch'}</span>
-		</button>
+		<div class="row">
+			{*<input type="hidden" name="controller" value="search" />
+			<input type="hidden" name="orderby" value="position" />
+			<input type="hidden" name="orderway" value="desc" />*}
+			<div class="col-xs-3">
+				{*<input type="inputlist" name="family" list="sources"/>*}
+				<select id="sources">
+					<option value="family">{l s='Search in Family' mod="blocksearch"}</option>
+					<option value="shop" selected>{l s='Search in APP' mod="blocksearch"}</option>
+				</select>
+			</div>
+			<div class="col-xs-8">
+				<input class="search_query form-control" type="text" id="search_query_top" name="search_query" placeholder="{l s='Search' mod='blocksearch'}" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
+			</div>
+			<div class="col-xs-1">
+				<button type="submit" name="submit_search" class="btn btn-default button-search">
+					<span>{l s='Search' mod='blocksearch'}</span>
+				</button>
+			</div>
+		</div>
 	</form>
 </div>
 <!-- /Block search module HOME -->
