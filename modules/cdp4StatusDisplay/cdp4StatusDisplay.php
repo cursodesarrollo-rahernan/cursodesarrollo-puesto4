@@ -134,7 +134,7 @@ class Cdp4StatusDisplay extends Module
                 'icon' => 'icon-cogs',
                 ),
                 'input' => array(
-                    array(
+                    /*array(
                         'type' => 'switch',
                         'label' => $this->l('Live mode'),
                         'name' => 'CDP4STATUSDISPLAY_LIVE_MODE',
@@ -152,20 +152,52 @@ class Cdp4StatusDisplay extends Module
                                 'label' => $this->l('Disabled')
                             )
                         ),
+                    ),*/
+                    array(
+                        'col' => 3,
+                        'type' => 'text',
+                        'prefix' => '<i class="icon icon-envelope"></i>',
+                        'desc' => $this->l('Head message to display:'),
+                        'name' => 'CDP4STATUSDISPLAY_MSG1_TEXT',
+                        'label' => $this->l('Text'),
                     ),
                     array(
                         'col' => 3,
                         'type' => 'text',
                         'prefix' => '<i class="icon icon-envelope"></i>',
-                        'desc' => $this->l('Enter a valid email address'),
-                        'name' => 'CDP4STATUSDISPLAY_ACCOUNT_EMAIL',
-                        'label' => $this->l('Email'),
+                        'desc' => $this->l('Message to display:'),
+                        'name' => 'CDP4STATUSDISPLAY_MSG2_TEXT',
+                        'label' => $this->l('Text'),
                     ),
                     array(
+                        'col' => 3,
+                        'type' => 'text',
+                        'prefix' => '<i class="icon icon-envelope"></i>',
+                        'desc' => $this->l('Status 1 text to display:'),
+                        'name' => 'CDP4STATUSDISPLAY_STATUS1_TEXT',
+                        'label' => $this->l('Text'),
+                    ),
+                    array(
+                        'col' => 3,
+                        'type' => 'text',
+                        'prefix' => '<i class="icon icon-envelope"></i>',
+                        'desc' => $this->l('Status 2 text to display:'),
+                        'name' => 'CDP4STATUSDISPLAY_STATUS2_TEXT',
+                        'label' => $this->l('Text'),
+                    ),
+                    array(
+                        'col' => 3,
+                        'type' => 'text',
+                        'prefix' => '<i class="icon icon-envelope"></i>',
+                        'desc' => $this->l('Status 2 text to display:'),
+                        'name' => 'CDP4STATUSDISPLAY_STATUS3_TEXT',
+                        'label' => $this->l('Text'),
+                    ),
+                    /*array(
                         'type' => 'password',
                         'name' => 'CDP4STATUSDISPLAY_ACCOUNT_PASSWORD',
                         'label' => $this->l('Password'),
-                    ),
+                    ),*/
                 ),
                 'submit' => array(
                     'title' => $this->l('Save'),
@@ -180,9 +212,14 @@ class Cdp4StatusDisplay extends Module
     protected function getConfigFormValues()
     {
         return array(
-            'CDP4STATUSDISPLAY_LIVE_MODE' => Configuration::get('CDP4STATUSDISPLAY_LIVE_MODE', true),
+            /*'CDP4STATUSDISPLAY_LIVE_MODE' => Configuration::get('CDP4STATUSDISPLAY_LIVE_MODE', true),
             'CDP4STATUSDISPLAY_ACCOUNT_EMAIL' => Configuration::get('CDP4STATUSDISPLAY_ACCOUNT_EMAIL', 'contact@prestashop.com'),
-            'CDP4STATUSDISPLAY_ACCOUNT_PASSWORD' => Configuration::get('CDP4STATUSDISPLAY_ACCOUNT_PASSWORD', null),
+            'CDP4STATUSDISPLAY_ACCOUNT_PASSWORD' => Configuration::get('CDP4STATUSDISPLAY_ACCOUNT_PASSWORD', null),*/
+            'CDP4STATUSDISPLAY_MSG1_TEXT' => Configuration::get('CDP4STATUSDISPLAY_MSG1_TEXT', 'Title'),
+            'CDP4STATUSDISPLAY_MSG2_TEXT' => Configuration::get('CDP4STATUSDISPLAY_MSG2_TEXT', 'Text'),
+            'CDP4STATUSDISPLAY_STATUS1_TEXT' => Configuration::get('CDP4STATUSDISPLAY_STATUS1_TEXT', 'Status1'),
+            'CDP4STATUSDISPLAY_STATUS2_TEXT' => Configuration::get('CDP4STATUSDISPLAY_STATUS2_TEXT', 'Status2'),
+            'CDP4STATUSDISPLAY_STATUS3_TEXT' => Configuration::get('CDP4STATUSDISPLAY_STATUS3_TEXT', 'Status3'),
         );
     }
 
@@ -226,5 +263,16 @@ class Cdp4StatusDisplay extends Module
     public function hookDisplayRightColumn()
     {
         /* Place your code here. */
+        /*return $this->display(__FILE__,'/views/templates/hook/cdp4StatusDisplay.tpl');*/
+        $this->context->smarty->assign(
+            array(
+                'CDP4STATUSDISPLAY_MSG1_TEXT' => Configuration::get('CDP4STATUSDISPLAY_MSG1_TEXT', 'Title'),
+                'CDP4STATUSDISPLAY_MSG2_TEXT' => Configuration::get('CDP4STATUSDISPLAY_MSG2_TEXT', 'Text'),
+                'CDP4STATUSDISPLAY_STATUS1_TEXT' => Configuration::get('CDP4STATUSDISPLAY_STATUS1_TEXT', 'Status1'),
+                'CDP4STATUSDISPLAY_STATUS2_TEXT' => Configuration::get('CDP4STATUSDISPLAY_STATUS2_TEXT', 'Status2'),
+                'CDP4STATUSDISPLAY_STATUS3_TEXT' => Configuration::get('CDP4STATUSDISPLAY_STATUS3_TEXT', 'Status3'),    
+            )
+        );
+        return $this->display(__FILE__,'cdp4StatusDisplay.tpl');
     }
 }

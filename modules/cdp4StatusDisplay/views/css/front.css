@@ -25,3 +25,53 @@
 * Don't forget to prefix your containers with your own identifier
 * to avoid any conflicts with others containers.
 */
+
+.statusdisplay-title {
+    font-size:16px;
+    text-align:left;
+    font-weight:bold;
+    padding-top:8px;
+    color:black;
+}
+
+.statusdisplay-text {
+    text-align:left;
+    padding-top:8px;
+    color:black;
+}
+
+.statusdisplay-lineblock{
+    border-top:solid 1px black;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+
+.statusdisplay-block{
+    margin-left:0px;
+    margin-right:0px;
+    position:relative;
+    border-top: 5px;
+    top:-3px;
+}
+
+.statusdisplay-block-active{
+    border-top:solid 5px #ff8000;
+    /*position:relative;
+    top:-3px;*/
+}
+
+.statusdisplay-block .statusdisplay-status{
+    /*border-top:solid 3px #ff8000*/
+}
+
+.statusdisplay-block .statusdisplay-number-active{
+    background:#ff8000;
+    color:white;
+    border-radius:0.8em;
+}
+
+.statusdisplay-block .statusdisplay-number-inactive{
+    background:#999999;
+    color:white;
+    border-radius:0.8em;
+}
