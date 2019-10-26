@@ -33,3 +33,5 @@
 {if isset($HOOK_HOME) && $HOOK_HOME|trim}
 	<div class="clearfix">{$HOOK_HOME}</div>
 {/if}
+<p>{l s="PVP actualizado por APP Appinformatica.com el día 26/10/2019 10:51. Lleva incluido todos los impuestos, IVA, IGIC y otros. Confirmar precio en tienda. Ofertas vigentes del 22/10/2019 al 26/10/2019"}</p>
+<a><button type="button" onclick="alert('Hello world!')">img</button></a>
