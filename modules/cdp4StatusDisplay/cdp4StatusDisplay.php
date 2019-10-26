@@ -161,6 +161,14 @@ class Cdp4StatusDisplay extends Module
                         'name' => 'CDP4STATUSDISPLAY_MSG1_TEXT',
                         'label' => $this->l('Text'),
                     ),
+                    /*array(
+						'type' => 'textarea',
+						'lang' => true,
+						'autoload_rte' => true,
+						'label' => $this->l('Text description to display:'),
+						'name' => 'CDP4STATUSDISPLAY_MSG2_TEXT',
+                        'desc' => $this->l('Text description under the title to be shown'),
+                    ),*/
                     array(
                         'col' => 3,
                         'type' => 'text',
