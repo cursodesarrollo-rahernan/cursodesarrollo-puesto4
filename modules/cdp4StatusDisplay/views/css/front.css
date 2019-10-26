@@ -50,7 +50,7 @@
     margin-left:0px;
     margin-right:0px;
     position:relative;
-    border-top: 5px;
+    border-top: solid 5px transparent;
     top:-3px;
 }
 
@@ -68,10 +68,18 @@
     background:#ff8000;
     color:white;
     border-radius:0.8em;
+    text-align:center;
+    line-height: 1.6em;
+    width:1.6em;
+    display:inline-block;
 }
 
 .statusdisplay-block .statusdisplay-number-inactive{
     background:#999999;
     color:white;
     border-radius:0.8em;
+    text-align:center;
+    line-height: 1.6em;
+    width:1.6em;
+    display:inline-block;
 }
