@@ -164,7 +164,7 @@ ul.product_list.grid > li {
     padding: 0;
     position: relative; }
     ul.product_list.grid > li .product-container .product-image-container {
-      border: 1px solid #d6d4d4;
+      /*border: 1px solid #d6d4d4;*/
       padding: 9px;
       margin-bottom: 13px;
       position: relative; }
@@ -370,7 +370,10 @@ Product list(Index page) Styles
 ********************************************************/
 #index ul.product_list.tab-pane > li {
   padding-bottom: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  padding-left:2px;
+  padding-right:2px;
+  /**/ }
   @media (min-width: 1200px) {
     #index ul.product_list.tab-pane > li {
       padding-bottom: 85px;
@@ -387,6 +390,26 @@ Product list(Index page) Styles
       clear: none; }
     #index ul.product_list.tab-pane > li.first-item-of-mobile-line {
       clear: left; } }
+
+.product-family-upperlink{
+  background-color:#07a8a2;
+  text-transform:uppercase;
+  line-height:2.6em;
+  padding-left:5px;
+  padding-right:5px;
+  font-size:15px;
+  text-align:center;
+}
+
+.product-family-upperlink a:link{
+  color:white;
+  text-decoration:none;
+}
+
+.product-family-upperlink a:visited{
+  color:white;
+  text-decoration:none;
+}
 
 /***** IE code *****/
 .ie8 .quick-view {
