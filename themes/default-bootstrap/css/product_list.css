@@ -411,6 +411,10 @@ Product list(Index page) Styles
   text-decoration:none;
 }
 
+#homefeatured ul.product_list .tab_pane{
+  margin:0px;
+}
+
 /***** IE code *****/
 .ie8 .quick-view {
   background: #fff;

@@ -63,4 +63,37 @@ form#searchbox {
     form#searchbox .button.button-small i {
       margin-right: 0; }
 
+.home_searchbox {
+  display:inline-flex;
+  padding-bottom:5px;
+  width:100%;
+}
+.home_searchbox .form-control{
+  height:auto;
+}
+
+.home_searchbox .home_searchbox_sources{
+  width:fit-content;
+}
+
+.home_searchbox .btn.button-search {
+  background: #fff;
+  display: block;
+  /*position: absolute;*/
+  top: 0;
+  right: 0;
+  color: #000;
+  text-align: center;
+  /*padding:0px;*/
+}
+  .home_searchbox .btn.button-search span {
+    display: none; }
+  .home_searchbox .btn.button-search:before {
+    content: "\f002";
+    display: block;
+    font-family: "FontAwesome";
+    /*font-size: 17px;*/
+    width: 100%;
+    text-align: center; }
+
 /*# sourceMappingURL=blocksearch.css.map */
