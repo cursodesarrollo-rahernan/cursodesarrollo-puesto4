@@ -5720,7 +5720,7 @@ textarea {
   z-index: 5003; }
 
 .columns-container {
-  background: #fff; }
+  background: transparent; }
 
 #columns {
   position: relative;
@@ -8587,6 +8587,69 @@ div.star.star_hover:after {
     right:0;
     width:50%;
   }
+}
+
+@media only screen and (max-width: 768px){
+  #desaparece{
+      display:none;
+  }
+  #cambiacolor{
+      background-color:#008a85;
+      color:green;
+  }
+}
+
+.segundo {
+  background-color:white;
+  width: 100%;
+}
+
+.tercero {
+  background-color:#008a85;
+  width: 100%;
+}
+#fondoverde1 {
+position: relative;
+
+  width: 80%;
+  max-width: 100%;
+  height: 100px;
+  background: #131918;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+border-left: 600px solid #fff;
+  /* border-top: 50px solid transparent; */
+  border-bottom: 100px solid transparent;
+}
+
+
+
+#fondoverde {
+position: relative;
+  float: right;
+  width: 80%;
+  max-width: 550px;
+  height: 100%;
+  background: #008a85;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#fondoverde:before {
+content:" ";
+position:absolute;
+top:0;
+left:-45px;
+background:#0d615e;
+width:60px;
+height:100%;
+-webkit-transform: skew(20deg);
+-moz-transform: skew(20deg);
+-ms-transform: skew(20deg);
+-o-transform: skew(20deg);
+transform: skew(20deg);
+
 }
 
 /*# sourceMappingURL=global.css.map */
