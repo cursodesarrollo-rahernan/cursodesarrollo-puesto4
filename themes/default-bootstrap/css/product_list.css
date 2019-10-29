@@ -413,13 +413,13 @@ Product list(Index page) Styles
 
 #homefeatured.row {
   margin-left:-2px;
-  margin-right:-2px;
+  margin-right:-4px;
 }
 
-#homefeatured.row li{
+/*#homefeatured.row li{
   margin-right:-2px;
-  margin-
-}
+  margin-left:-2px;
+}*/
 
 /***** IE code *****/
 .ie8 .quick-view {
