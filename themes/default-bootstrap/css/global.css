@@ -8588,6 +8588,11 @@ div.star.star_hover:after {
     width:50%;
   }
 }
+/*
+@media (min-width: 768px) {
+  #columns.container {
+    max-width: 0px; }*/
+
 
 @media only screen and (max-width: 768px){
   #desaparece{
