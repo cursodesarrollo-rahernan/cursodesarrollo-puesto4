@@ -239,7 +239,7 @@ class Cdp4StatusDisplay extends Module
         $form_values = $this->getConfigFormValues();
 
         foreach (array_keys($form_values) as $key) {
-            Configuration::updateValue($key, Tools::getValue($key));
+            Configuration::updateValue($key, Tools::getValue($key),true);
         }
     }
 
