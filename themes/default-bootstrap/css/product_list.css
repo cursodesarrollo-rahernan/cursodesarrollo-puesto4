@@ -411,8 +411,14 @@ Product list(Index page) Styles
   text-decoration:none;
 }
 
-#homefeatured ul.product_list .tab_pane{
-  margin:0px;
+#homefeatured.row {
+  margin-left:-2px;
+  margin-right:-2px;
+}
+
+#homefeatured.row li{
+  margin-right:-2px;
+  margin-
 }
 
 /***** IE code *****/
