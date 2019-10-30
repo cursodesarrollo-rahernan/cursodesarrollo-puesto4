@@ -28,7 +28,7 @@ ul.product_list .color-list-container {
         width: 22px;
         height: 22px; }
 ul.product_list .product-image-container {
-  text-align: center; }
+  text-align: left; /*RHM*/ }
   ul.product_list .product-image-container img {
     margin: 0 auto; }
   ul.product_list .product-image-container .quick-view-wrapper-mobile {

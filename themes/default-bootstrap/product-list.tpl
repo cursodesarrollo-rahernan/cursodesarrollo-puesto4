@@ -46,7 +46,7 @@
 		{if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
 		{if $totModuloTablet == 0}{assign var='totModuloTablet' value=$nbItemsPerLineTablet}{/if}
 		{if $totModuloMobile == 0}{assign var='totModuloMobile' value=$nbItemsPerLineMobile}{/if}
-		<li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-6 col-md-4{else} col-xs-12 col-sm-6 col-md-4{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLine == 1} first-in-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModulo)} last-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 0} last-item-of-tablet-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 1} first-item-of-tablet-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 0} last-item-of-mobile-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 1} first-item-of-mobile-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModuloMobile)} last-mobile-line{/if}">
+		<li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-6 col-sm-6 col-md-4{else} col-xs-6 col-sm-6 col-md-4{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLine == 1} first-in-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModulo)} last-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 0} last-item-of-tablet-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineTablet == 1} first-item-of-tablet-line{/if}{if $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 0} last-item-of-mobile-line{elseif $smarty.foreach.products.iteration%$nbItemsPerLineMobile == 1} first-item-of-mobile-line{/if}{if $smarty.foreach.products.iteration > ($smarty.foreach.products.total - $totModuloMobile)} last-mobile-line{/if}">
 			<div class="product-container" itemscope itemtype="https://schema.org/Product">
 				{**}
 				{*if $page_name =='index'*}
@@ -72,10 +72,12 @@
 							<span>{l s='Quick view'}</span>
 						</a>
 						{/if}
-						{if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
+						{*if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))*}
+						{if false} {*No queremos barra desplegable en esta distribucion APP_*}
 							<div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 								{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
 									<span itemprop="price" class="price product-price">
+										{*ESTE ES EL PRECIO DE LA VENTANA DESPLEGABLE*}
 										{hook h="displayProductPriceBlock" product=$product type="before_price"}
 										{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 									</span>
@@ -106,16 +108,27 @@
 								{/if}
 							</div>
 						{/if}
+						{*APP_ marca productos TOP VENTAS con un cuadro verde en la esquina superior izq. PERO NO EN INDEX por la barra de showcategory*}
+						{*var_dump(isset($best_sellers))*}
+						{if isset($product.new) && $product.new != 1 && !$showcategory} {*actualmente la condicion es que no sea nuevo, tengo que cambiarla a algo que diga que es un topseller*}
+							<a class="topseller-box" href="{$product.link|escape:'html':'UTF-8'}">
+								<span class="topseller-label">{l s='Top ventas'}</span>
+							</a>
+						{/if}
+						{* APP_ no marca productos nuevos (que haya visto)
 						{if isset($product.new) && $product.new == 1}
 							<a class="new-box" href="{$product.link|escape:'html':'UTF-8'}">
 								<span class="new-label">{l s='New'}</span>
 							</a>
 						{/if}
+						*}
+						{* APP no marca las ofertas con banner.
 						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
 							<a class="sale-box" href="{$product.link|escape:'html':'UTF-8'}">
 								<span class="sale-label">{l s='Sale!'}</span>
 							</a>
 						{/if}
+						*}
 					</div>
 					{if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
 					{hook h="displayProductPriceBlock" product=$product type="weight"}
@@ -138,18 +151,23 @@
 					</p>
 					{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
 					<div class="content_price">
+						{*Proceso: Mostrar precio con descuento (y marcarlo a rojo) de existir y si no precio con iva. Nada mas*}
 						{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
 							{hook h="displayProductPriceBlock" product=$product type='before_price'}
-							<span class="price product-price">
+							<span class="price product-price{if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0} product-price-sale-color{/if}">
+								{*Precio con o sin descuento*}
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
-							{if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
+							{if false} {*En APP no sacamos el viejo precio ni el porcentaje de oferta*}
+							{*if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0*}
 								{hook h="displayProductPriceBlock" product=$product type="old_price"}
 								<span class="old-price product-price">
+									{*precio sin descuento*}
 									{displayWtPrice p=$product.price_without_reduction}
 								</span>
 								{hook h="displayProductPriceBlock" id_product=$product.id_product type="old_price"}
 								{if $product.specific_prices.reduction_type == 'percentage'}
+									{*% de descuento*}
 									<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
 								{/if}
 							{/if}
@@ -163,18 +181,20 @@
 						{if ($product.id_product_attribute == 0 || (isset($add_prod_display) && ($add_prod_display == 1))) && $product.available_for_order && !isset($restricted_country_mode) && $product.customizable != 2 && !$PS_CATALOG_MODE}
 							{if (!isset($product.customization_required) || !$product.customization_required) && ($product.allow_oosp || $product.quantity > 0)}
 								{capture}add=1&amp;id_product={$product.id_product|intval}{if isset($product.id_product_attribute) && $product.id_product_attribute}&amp;ipa={$product.id_product_attribute|intval}{/if}{if isset($static_token)}&amp;token={$static_token}{/if}{/capture}
-								<a class="button ajax_add_to_cart_button btn btn-default" href="{$link->getPageLink('cart', true, NULL, $smarty.capture.default, false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Add to cart'}" data-id-product-attribute="{$product.id_product_attribute|intval}" data-id-product="{$product.id_product|intval}" data-minimal_quantity="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity >= 1}{$product.product_attribute_minimal_quantity|intval}{else}{$product.minimal_quantity|intval}{/if}">
+								<a class="button p4product_button{*ajax_add_to_cart_button *}btn btn-default" href="{$link->getPageLink('cart', true, NULL, $smarty.capture.default, false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Add to cart'}" data-id-product-attribute="{$product.id_product_attribute|intval}" data-id-product="{$product.id_product|intval}" data-minimal_quantity="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity >= 1}{$product.product_attribute_minimal_quantity|intval}{else}{$product.minimal_quantity|intval}{/if}">
 									<span>{l s='Add to cart'}</span>
 								</a>
 							{else}
-								<span class="button ajax_add_to_cart_button btn btn-default disabled">
+								<span class="button p4product_button{*ajax_add_to_cart_button *}btn btn-default disabled">
 									<span>{l s='Add to cart'}</span>
 								</span>
 							{/if}
 						{/if}
+						{if false} {*Para APP se elimina el botón de "Mas". En una distribución mas detallada se añadiria la opcion de desactivarlo en el controlador.*}
 						<a class="button lnk_view btn btn-default" href="{$product.link|escape:'html':'UTF-8'}" title="{l s='View'}">
 							<span>{if (isset($product.customization_required) && $product.customization_required)}{l s='Customize'}{else}{l s='More'}{/if}</span>
 						</a>
+						{/if} {**}
 					</div>
 					{if isset($product.color_list)}
 						<div class="color-list-container">{$product.color_list}</div>
