@@ -8606,15 +8606,26 @@ div.star.star_hover:after {
 
 .p4product_button span{
   position:absolute;
-  background-color: red;
+  background-color: orange;
+  right:5px;
+  bottom:5px;
+  border-radius:1.6em;
+  font:normal normal normal 14px/1 FontAwesome;
+  color:white;
+}
+.p4product_button span:before{
+  content:"\f218";
+}
+
+a.button.p4product_button {
+  position:absolute;
   right:1em;
   bottom:1em;
 }
-
 @media only screen and (max-width: 480px){
   a.button.p4product_button {
     position:absolute;
-    right:1em;
+    right:50%;
     bottom:1em;
   }
 }
@@ -8687,15 +8698,15 @@ div.star.star_hover:after {
 }
 
 #fondoverde-full {
-  height:45px;
+  height:51px;
   background: #07a8a2;
   color:white;
 }
-#fondoverde-full > a:link{
+#fondoverde-full.a:link{
   color:white;
   text-decoration:none;
 }
-#fondoverde-full a:visited{
+#fondoverde-full.a:visited{
   color:white;
   text-decoration:none;
 }
@@ -8721,7 +8732,7 @@ div.star.star_hover:after {
   }
 }*/
 #fondoverde {
-  height: 45px;
+  height: 51px;
   color:white;
   background: #07a8a2;
 }
