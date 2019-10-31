@@ -5735,7 +5735,7 @@ header {
   z-index: 1;
   position: relative;
   background: #fff;
-  padding-bottom: 15px; }
+  /*padding-bottom: 15px;   editado*/ }
   header .banner {
     background: black;
     max-height: 100%; }
@@ -8600,12 +8600,13 @@ div.star.star_hover:after {
   bottom:1em;
 }
 
-.button-container > a.button.p4product_button {
+/*.button-container > a.button.p4product_button {
   background-color: red;
-}
+}*/
 
 .p4product_button span{
   position:absolute;
+  background-color: red;
   right:1em;
   bottom:1em;
 }
@@ -8675,60 +8676,61 @@ div.star.star_hover:after {
   #columns.container {
     max-width: 0px; }*/
 
+#desaparece{
+  display:block;
+}
 
 @media only screen and (max-width: 768px){
   #desaparece{
       display:none;
   }
-  #cambiacolor{
-      background-color:#008a85;
-      color:green;
+}
+
+#fondoverde-full {
+  height:45px;
+  background: #07a8a2;
+  color:white;
+}
+#fondoverde-full > a:link{
+  color:white;
+  text-decoration:none;
+}
+#fondoverde-full a:visited{
+  color:white;
+  text-decoration:none;
+}
+@media only screen and (max-width: 768px){
+  #fondoverde-full {
+    padding: 3px;
+    height:100%;
   }
 }
 
-.segundo {
-  background-color:white;
-  width: 100%;
+#header-container:{
+  padding-top:15px;
 }
 
-.tercero {
-  background-color:#008a85;
-  width: 100%;
-}
-#fondoverde1 {
-position: relative;
-
-  width: 80%;
-  max-width: 100%;
-  height: 100px;
-  background: #131918;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-border-left: 600px solid #fff;
-  /* border-top: 50px solid transparent; */
-  border-bottom: 100px solid transparent;
-}
-
-
-
+/*@media only screen and (max-width: 768px){
+  #fondoverde{
+      height:100%;
+      position:absolute;
+      right:0px;
+      top:0px;
+      background:transparent;
+      color:#07a8a2;
+  }
+}*/
 #fondoverde {
-position: relative;
-  float: right;
-  width: 80%;
-  max-width: 550px;
-  height: 100%;
-  background: #008a85;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  height: 45px;
+  color:white;
+  background: #07a8a2;
 }
 #fondoverde:before {
 content:" ";
 position:absolute;
 top:0;
 left:-45px;
-background:#0d615e;
+background:#07a8a2;
 width:60px;
 height:100%;
 -webkit-transform: skew(20deg);
@@ -8737,5 +8739,19 @@ height:100%;
 -o-transform: skew(20deg);
 transform: skew(20deg);
 }
+  @media only screen and (max-width: 768px){
+    #fondoverde{
+        height:100%;
+        position:absolute;
+        right:0px;
+        top:0px;
+        background:transparent;
+        color:#07a8a2;
+    }
+    #fondoverde:before {
+      content:" ";
+      background:transparent;
+    }
+  }
 
 /*# sourceMappingURL=global.css.map */

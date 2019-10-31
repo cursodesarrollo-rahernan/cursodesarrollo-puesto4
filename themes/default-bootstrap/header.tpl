@@ -100,21 +100,30 @@
 						</div>
 					{/if}
 					<div>
-						<div class="container">
+						<div class="container-fluid" id="header-container">
 							<div class="row">
-								<div id="header_logo">
+								<div class="col-8 col-sm-7" {*id="header_logo"*}>
 									<a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
-										<img class="logo img-responsive" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}/>
+										<img {*class="logo img-responsive"*} src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}/>
 									</a>
+								</div>{*
+								<div class="col-4 col-sm-3" id="desaparece">
+									<p>bloque 2</p>
+								</div>*}
+								<div class="col-4 col-sm-2" id="fondoverde">
+									<a>{l s="tu tienda APP_"}</a>
 								</div>
-								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
+								<div class="col-12 col-sm-3" id="fondoverde-full">
+									<a>{l s="Appinformatica.com"}</a>
+									{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
+								</div>
 							</div>
 						</div>
 					</div>
 				</header>
 			</div>
 			<div class="columns-container">
-				<div id="columns" class="container">
+				<div id="columns" {*class="container"*}>
 					{if $page_name !='index' && $page_name !='pagenotfound'}
 						{include file="$tpl_dir./breadcrumb.tpl"}
 					{/if}
