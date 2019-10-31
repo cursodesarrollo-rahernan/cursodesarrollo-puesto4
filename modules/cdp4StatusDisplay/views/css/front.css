@@ -1,0 +1,85 @@
+/**
+* 2007-2019 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author    PrestaShop SA <contact@prestashop.com>
+*  @copyright 2007-2019 PrestaShop SA
+*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*
+* Don't forget to prefix your containers with your own identifier
+* to avoid any conflicts with others containers.
+*/
+
+.statusdisplay-title {
+    font-size:16px;
+    text-align:left;
+    font-weight:bold;
+    padding-top:8px;
+    color:black;
+}
+
+.statusdisplay-text {
+    text-align:left;
+    padding-top:8px;
+    color:black;
+}
+
+.statusdisplay-lineblock{
+    border-top:solid 1px black;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+
+.statusdisplay-block{
+    margin-left:0px;
+    margin-right:0px;
+    position:relative;
+    border-top: solid 5px transparent;
+    top:-3px;
+}
+
+.statusdisplay-block-active{
+    border-top:solid 5px #07a8a2;
+    /*position:relative;
+    top:-3px;*/
+}
+
+.statusdisplay-block .statusdisplay-status{
+    /*border-top:solid 3px #ff8000*/
+}
+
+.statusdisplay-block .statusdisplay-number-active{
+    background:#ff8000;
+    color:white;
+    border-radius:0.8em;
+    text-align:center;
+    line-height: 1.6em;
+    width:1.6em;
+    display:inline-block;
+}
+
+.statusdisplay-block .statusdisplay-number-inactive{
+    background:#999999;
+    color:white;
+    border-radius:0.8em;
+    text-align:center;
+    line-height: 1.6em;
+    width:1.6em;
+    display:inline-block;
+}
